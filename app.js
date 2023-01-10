@@ -1,18 +1,26 @@
 const sections = document.querySelectorAll('.section');
-const sectBtns = document.querySelectorAll('.controlls');
-const sectBtn = document.querySelectorAll('.control');
-const allSections = document.querySelectorAll('.main-content');
+const sectBtns = document.querySelectorAll('.control');
+const allSections = document.querySelector('.main-content');
 
 function PageTransitions(){
-    //Button click active class
-    for(let i = 0; i < sectBtn.length; i++){
-        sectBtn[i].addEventListener('click', function(){
-            let currentBtn = document.querySelectorAll['.active-btn'];
-            currentBtn[0].className = currentBtn[0].className.replace['active-btn', ''];
-            this.className += 'active-btn';
-        })
-    }
+    sectBtns.forEach( btn => btn.addEventListener('click', (e) => {
+        const id = e.target.getAttribute('data-id');
 
+        if(id) {
+            for(let btn of sectBtns){
+                btn.classList.remove('active-btn');
+            }
+            e.target.classList.add('active-btn');
+
+            for(let section of sections){
+                section.classList.remove('active');
+                section.classList.remove('active-color');
+            }
+
+            const element = document.getElementById(id);
+            element.classList.add('active','active-color');
+        }
+    })); 
 }
-
 PageTransitions();
+
