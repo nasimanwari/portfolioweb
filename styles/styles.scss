@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -53,7 +54,7 @@ a{
 }
 
 header{
-    height: 100vh;
+    min-height: 100vh;
     color: var(--color-white);
     overflow: hidden;
 }
@@ -650,3 +651,4 @@ section{
         font-size:5.3rem;
     }
 }
+@import './media';
